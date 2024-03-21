@@ -1,8 +1,6 @@
-
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
-import Header from './components/Header';
 import Auth from './pages/Auth';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
@@ -13,7 +11,6 @@ import PageNotFound from './pages/PageNotFound';
 function App() {
   return (
     <div className="App">
-      <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Auth/>}/>

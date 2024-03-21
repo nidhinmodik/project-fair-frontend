@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Myproject from '../components/Myproject';
 import Myprofile from '../components/Myprofile';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 
 
 function Dashboard() {
@@ -11,6 +12,7 @@ function Dashboard() {
   console.log(existingUser);
   return (
     <div>
+      <Header/>
       <div>
         <Row>
           <h2 className='ms-5 mt-5'>Welcome <span className='text-primary'>{existingUser.username}</span></h2>

@@ -4,8 +4,15 @@ import {
   MDBNavbar,
   MDBNavbarBrand
 } from 'mdb-react-ui-kit';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
+
+  const location = useNavigate()
+  const logout=()=>{
+    sessionStorage.clear();
+    location('/')
+  }
   return (
     <div>
       <MDBNavbar light bgColor='light'>
@@ -19,6 +26,7 @@ function Header() {
             />
             FAIR
           </MDBNavbarBrand>
+          <div onClick={logout} className="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i></div>
         </MDBContainer>
       </MDBNavbar>
     </div>

@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import img from '../Assets/DXKh.gif'
 import { baseUrl } from '../services/baseUrl'
 import { editUserProject } from '../services/allAPIs';
+import { editUserProjectResponseContext } from '../ContextAPI/ContextShare';
 
 function EditProject({project}) {
+  const {editUserProjectRes,setEditUserProjectRes} = useContext(editUserProjectResponseContext)
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -53,7 +56,26 @@ function EditProject({project}) {
           const result = await editUserProject(id,reqBody,reqHeader)
           console.log(result);
           if(result.status == 200){
-            setProjectDetails(result.data)
+            setEditUserProjectRes(result.data)
+          }
+          else{
+            console.log(result.response.data);
+          }
+        }
+        else{
+          const reqHeader ={
+            "Content-Type":"application/json",
+            "Authorization":`Bearer ${token}`
+    
+          }
+          //api call
+          const result = await editUserProjectAPI(id,reqBody,reqHeader)
+          console.log(result);
+          if(result.status==200){
+            setEditUserProjectRes(result.data)
+          }
+          else{
+            console.log(result.data);
           }
         }
     }

@@ -5,6 +5,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom'
 import { getHomeProjectAPI } from '../services/allAPIs';
+import {
+  MDBContainer,
+  MDBNavbar,
+  MDBNavbarBrand
+} from 'mdb-react-ui-kit';
 
 function Home() {
 
@@ -30,6 +35,19 @@ function Home() {
 
   return (
     <div>
+      <MDBNavbar light bgColor='light'>
+        <MDBContainer fluid>
+          <MDBNavbarBrand href='/'>
+            <img
+              className='logo ms-3'
+              src='https://www.theprojectilkeston.co.uk/wordpress/wp-content/uploads/2017/01/The-Project-Logo.jpg'
+              height='120px'
+              alt=''
+            />
+            FAIR
+          </MDBNavbarBrand>
+        </MDBContainer>
+      </MDBNavbar>
       <div className="container">
         <div className="row">
           <div className="col-6">

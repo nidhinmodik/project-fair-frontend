@@ -6,6 +6,10 @@ import { getAllProjectAPI } from '../services/allAPIs';
 import { all } from 'axios';
 
 function Project() {
+  //to hold search value from the input tag
+  const [searchKey,setSearchkey] = useState("")
+  console.log(searchKey);
+
   const [allProject, setAllProject] = useState([])//to hold all project
   //api call
   const allProjects = async () => {
@@ -18,7 +22,7 @@ function Project() {
         "Authorization": `Bearer ${token}`
       }
       try {
-        const result = await getAllProjectAPI(reqHeader);
+        const result = await getAllProjectAPI(searchKey,reqHeader);
         console.log(result);
         if (result.status === 200) {
           setAllProject(result.data);
@@ -37,7 +41,7 @@ function Project() {
 
   useEffect(() => {
     allProjects()
-  }, [])
+  }, [searchKey])
 
   return (
     <div>
@@ -45,7 +49,7 @@ function Project() {
         <h1 className='text-center m-4'>All Projects</h1>
         <div className='d-flex justify-content-center w-100'>
           <div className='d-flex border border-4 bg-light mb-5'>
-            <input type="text" className='form-control' placeholder='Search By Name' />
+            <input type="text" onChange={e=>setSearchkey(e.target.value)} className='form-control' placeholder='Search By Name' />
             <i className="fa-solid fa-magnifying-glass text-dark fs-3 p-2"></i>
           </div>
         </div>

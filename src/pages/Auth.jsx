@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import login from '../Assets/login-animate.gif'
 import { loginAPI, registerAPI } from '../services/allAPIs'
+import {
+  MDBContainer,
+  MDBNavbar,
+  MDBNavbarBrand
+} from 'mdb-react-ui-kit';
 
 
 function Auth({register}) {
@@ -62,7 +67,21 @@ function Auth({register}) {
 
 
   return (
-    <div className='d-flex flex-column justify-content-center align-items-center' style={{width:'100%'}}>
+    <div>
+      <MDBNavbar light bgColor='light'>
+        <MDBContainer fluid>
+          <MDBNavbarBrand href='/'>
+            <img
+              className='logo ms-3'
+              src='https://www.theprojectilkeston.co.uk/wordpress/wp-content/uploads/2017/01/The-Project-Logo.jpg'
+              height='120px'
+              alt=''
+            />
+            FAIR
+          </MDBNavbarBrand>
+        </MDBContainer>
+      </MDBNavbar>
+      <div className='d-flex flex-column justify-content-center align-items-center' style={{width:'100%'}}>
       <div className="container">
         <div className="row" style={{marginBottom:'30px'}}>
           <div className="col">
@@ -121,6 +140,7 @@ function Auth({register}) {
         </Link>
       </div>
 
+    </div>
     </div>
   )
 }
