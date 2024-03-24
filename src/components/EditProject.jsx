@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import img from '../Assets/DXKh.gif'
 import { baseUrl } from '../services/baseUrl'
 import { editUserProject } from '../services/allAPIs';
 import { editUserProjectResponseContext } from '../ContextAPI/ContextShare';
@@ -12,7 +11,7 @@ function EditProject({project}) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    console.log(editUserProjectRes);
      //to hold project details
      const [projectDetails,setProjectDetails] = useState({
         id:project._id,title:project.title,language:project.language,github:project.github,link:project.link,overview:project.overview,projectImage:""
@@ -69,7 +68,7 @@ function EditProject({project}) {
     
           }
           //api call
-          const result = await editUserProjectAPI(id,reqBody,reqHeader)
+          const result = await editUserProject(id,reqBody,reqHeader)
           console.log(result);
           if(result.status==200){
             setEditUserProjectRes(result.data)

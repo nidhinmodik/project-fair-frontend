@@ -20,6 +20,7 @@ function Auth({register}) {
     email:"",
     password:"",
   })
+  console.log(userData);
 //Register function
   const registerData=async()=>{
     const {username,email,password} = userData

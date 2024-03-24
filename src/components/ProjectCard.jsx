@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
-import img from '../Assets/call-c.webp';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { baseUrl } from '../services/baseUrl';

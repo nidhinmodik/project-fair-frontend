@@ -1,1 +1,1 @@
-export const baseUrl="https://project-fair-backend-nfzp.onrender.com"
+export const baseUrl="https://project-fair-backend-nfzp.onrender.com/"

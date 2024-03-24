@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import AddProject from './AddProject'
 import { deleteUserProjectAPI, getUserProjectAPI } from '../services/allAPIs';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { addProjectResponseContext } from '../ContextAPI/ContextShare';
 import EditProject from './EditProject';
 import { editUserProjectResponseContext } from '../ContextAPI/ContextShare';
@@ -13,9 +12,10 @@ import 'react-toastify/dist/ReactToastify.css';
 function Myproject() {
 
     const { editUserProjectRes, setEditUserProjectRes } = useContext(editUserProjectResponseContext)
-
+    console.log(setEditUserProjectRes);
 
     const { addProjectRes, setAddProjectRes } = useContext(addProjectResponseContext)
+    console.log(setAddProjectRes);
 
     const [userProject, setUserProject] = useState([])
     //api call
